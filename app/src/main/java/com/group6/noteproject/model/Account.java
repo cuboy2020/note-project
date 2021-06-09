@@ -2,6 +2,7 @@ package com.group6.noteproject.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -10,15 +11,16 @@ public class Account {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo
+    @ColumnInfo(name="username")
     private String username;
 
-    @ColumnInfo
+    @ColumnInfo(name="password")
     private String password;
 
     public Account() {
     }
 
+    @Ignore
     public Account(int id, String username, String password) {
         this.id = id;
         this.username = username;

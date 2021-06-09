@@ -2,6 +2,7 @@ package com.group6.noteproject.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -28,6 +29,7 @@ public class User {
     public User() {
     }
 
+    @Ignore
     public User(int id,
                 String fullname,
                 String email,

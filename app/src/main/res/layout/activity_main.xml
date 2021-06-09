@@ -38,4 +38,23 @@
                 android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
+
+    <!-- Relative Layout for 'Add' Floating Action Button -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="40dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:contentDescription="Add New Note"
+            android:src="@drawable/ic_add_24"
+            android:visibility="visible"
+            app:tint="@color/black" />
+    </RelativeLayout>
 </RelativeLayout>

@@ -15,9 +15,12 @@ public class ViewEditNoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_note);
-    }
 
-    public void onSave(View v){
-        
+        findViewById(R.id.fab_save_note).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

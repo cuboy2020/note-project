@@ -54,7 +54,6 @@
             android:layout_alignParentBottom="true"
             android:contentDescription="Add New Note"
             android:clickable="true"
-            android:onClick="onClick"
             android:src="@drawable/ic_add_24"
             android:visibility="visible"
             app:tint="@color/black" />

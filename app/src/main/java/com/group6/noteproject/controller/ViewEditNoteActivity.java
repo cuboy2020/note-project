@@ -2,9 +2,11 @@ package com.group6.noteproject.controller;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.group6.noteproject.R;
 
 public class ViewEditNoteActivity extends AppCompatActivity {
@@ -15,7 +17,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_note);
     }
 
-    public void onClick(View v){
+    public void onSave(View v){
         
     }
 }

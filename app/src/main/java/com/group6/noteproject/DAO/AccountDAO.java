@@ -1,16 +1,21 @@
 package com.group6.noteproject.DAO;
 
-import android.accounts.Account;
 
 import androidx.room.Dao;
+import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.group6.noteproject.model.Account;
 
 @Dao
 public interface AccountDAO {
 
     @Query("SELECT * FROM account WHERE username = :username AND password = :password")
-    public Account logIn(String username, String password);
+    Account logIn(String username, String password);
 
     @Query("SELECT * FROM account WHERE username = :username")
-    public Account getUserByUsername(String username);
+    Account getAccountByUsername(String username);
+
+    @Insert
+    long insertAccount(Account account);
 }

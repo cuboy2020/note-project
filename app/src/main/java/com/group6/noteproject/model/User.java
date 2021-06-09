@@ -5,26 +5,28 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class User {
+public class User implements Serializable {
 
     @PrimaryKey
-    private int id;
+    private int id; // User ID
 
     @ColumnInfo
-    private String fullname;
+    private String fullname; // user fullname
 
     @ColumnInfo
-    private String email;
+    private String email;  // user email
 
     @ColumnInfo
-    private String address;
+    private String address; // user address
 
     @ColumnInfo
-    private String phone;
+    private String phone; // user phone
 
     @ColumnInfo
-    private String birthdate;
+    private String birthdate; // user birthdate
 
     public User() {
     }

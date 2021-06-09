@@ -5,17 +5,19 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class Account {
+public class Account implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int id; // Account id
 
     @ColumnInfo(name="username")
-    private String username;
+    private String username; // Account username
 
     @ColumnInfo(name="password")
-    private String password;
+    private String password; // Account password
 
     public Account() {
     }

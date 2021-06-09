@@ -19,6 +19,11 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase dbInstance;
 
+    /**
+     * Get instance of app database, create if not existed
+     * @param context
+     * @return instance of app database
+     */
     public static AppDatabase getInstance(final Context context) {
         if (dbInstance == null) {
             dbInstance =

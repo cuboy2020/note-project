@@ -35,4 +35,31 @@ public class NoteService {
     public Note getNoteById(int id){
         return noteDAO.getNoteById(id);
     }
+
+    /**
+     * Insert new note
+     * @param note note object
+     * @return insert success status
+     */
+    public boolean insertNote(Note note){
+        return noteDAO.insertNote(note) > 0;
+    }
+
+    /**
+     * Update note
+     * @param note updated note
+     * @return update success status
+     */
+    public boolean updateNote(Note note){
+        return noteDAO.updateNote(note) > 0;
+    }
+
+    /**
+     * Delete note
+     * @param note note want to delete
+     * @return delete success status
+     */
+    public boolean deleteNote(Note note){
+        return noteDAO.deleteNote(note) > 0;
+    }
 }

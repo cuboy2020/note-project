@@ -1,8 +1,10 @@
-package com.group6.noteproject;
+package com.group6.noteproject.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.group6.noteproject.R;
 
 public class LoginActivity extends AppCompatActivity {
 

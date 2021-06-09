@@ -62,4 +62,5 @@ public class NoteService {
     public boolean deleteNote(Note note){
         return noteDAO.deleteNote(note) > 0;
     }
+
 }

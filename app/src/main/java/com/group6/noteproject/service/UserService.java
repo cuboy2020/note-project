@@ -27,9 +27,9 @@ public class UserService {
      * @param password input password
      * @return if credentials is valid
      */
-    public boolean logIn(String username, String password){
+    public Account logIn(String username, String password){
         Account account = accountDAO.logIn(username, password);
-        return account != null;
+        return account;
     }
 
     /**

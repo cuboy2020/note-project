@@ -81,6 +81,8 @@ public class RegisterActivity extends AppCompatActivity {
                     isValidInput = false;
                 }
 
+                if (!TextUtils.isEmpty(regEmail) && !regEmail.matches(""))
+
                 if (isValidInput){
                     Account account = new Account();
                     account.setUsername(regUsername);

@@ -45,4 +45,15 @@ public class UserService {
 
         return accountDAO.insertAccount(account) > 0 && userDAO.insertUser(user) > 0;
     }
+
+    /**
+     *
+     * @param username
+     * @return
+     */
+    public Account getUserAccount(String username){
+        Account account = accountDAO.getAccountByUsername(username);
+
+        return account;
+    }
 }

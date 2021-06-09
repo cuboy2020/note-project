@@ -81,7 +81,22 @@ public class RegisterActivity extends AppCompatActivity {
                     isValidInput = false;
                 }
 
-                if (!TextUtils.isEmpty(regEmail) && !regEmail.matches(""))
+                if (!TextUtils.isEmpty(regEmail) && !regEmail.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
+                                "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
+                    etEmail.setError("Full Name must not be empty!");
+                    isValidInput = false;
+                }
+
+                if (!TextUtils.isEmpty(regPhone) && !regPhone.matches("^(\\+84|0)+(3[2-9]|5[6|8|9]|9\\d(?!5)|8[1-9]|7[0|6-9])+([0-9]{7})$")){
+                    etPhone.setError("Phone must be in correct format!\nExample: +84834567890 or 0834567890");
+                    isValidInput = false;
+                }
+
+                if (!TextUtils.isEmpty(regBirthdate) && !regBirthdate.matches("(^(((0[1-9]|1[0-9]|2[0-8])[\\/](0[1-9]|1[012]))|((29|30|31)[\\/](0[13578]|1[02]))|((29|30)[\\/](0[4,6,9]|11)))[\\/](19|[2-9][0-9])\\d\\d$)|" +
+                        "(^29[\\/]02[\\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)")){
+                    etBirthdate.setError("Date must be in correct format (dd/MM/yyyy)!\n");
+                    isValidInput = false;
+                }
 
                 if (isValidInput){
                     Account account = new Account();

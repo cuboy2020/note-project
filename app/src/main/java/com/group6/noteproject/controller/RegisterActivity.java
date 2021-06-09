@@ -83,7 +83,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (!TextUtils.isEmpty(regEmail) && !regEmail.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
                                 "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
-                    etEmail.setError("Full Name must not be empty!");
+                    etEmail.setError("Email must be in correct format!\nExample: abc@gmail.com");
                     isValidInput = false;
                 }
 

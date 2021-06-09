@@ -35,4 +35,13 @@ public class NoteService {
     public Note getNoteById(int id){
         return noteDAO.getNoteById(id);
     }
+
+    /**
+     * Delete note
+     * @param id id of note
+     * @return Boolean boolean
+     */
+    public Boolean deleteNoteById(int id){
+        return noteDAO.deleteNoteById(id);
+    }
 }

@@ -15,4 +15,7 @@ public interface NoteDAO {
 
     @Query("SELECT * FROM note WHERE id = :id")
     Note getNoteById(int id);
+
+    @Query("DELETE FROM note WHERE id = :id")
+    Boolean deleteNoteById(int id);
 }

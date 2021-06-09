@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
         account.setUsername("thang");
         account.setPassword("123");
         User user = new User();
-        userService.register(account,user);
+        userService.register(account, user);
 
         Button btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -58,9 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-
-
     public void onClick(View v){
-
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 }

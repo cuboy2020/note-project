@@ -6,6 +6,7 @@ import com.group6.noteproject.DAO.NoteDAO;
 import com.group6.noteproject.database.AppDatabase;
 import com.group6.noteproject.model.Note;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NoteService {

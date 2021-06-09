@@ -13,6 +13,7 @@ import com.group6.noteproject.R;
 import com.group6.noteproject.model.Note;
 
 import java.util.List;
+import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
 
@@ -59,5 +60,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
     @Override
     public int getItemCount() {
         return notes.size();
+    }
+
+    public int getNoteId(int position){
+        return notes.get(position).getId();
+    }
+
+    /**
+     * Return note list which the adapter uses
+     * @return list of notes
+     */
+    public List<Note> getNotes() {
+        return notes;
     }
 }

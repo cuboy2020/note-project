@@ -51,8 +51,19 @@ public class UserService {
      * @param username
      * @return
      */
-    public Account getUserAccount(String username){
+    public Account getAccountByUsername(String username){
         Account account = accountDAO.getAccountByUsername(username);
+
+        return account;
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Account getAccountById(int id){
+        Account account = accountDAO.getAccountById(id);
 
         return account;
     }

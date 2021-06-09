@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // switch to register intent
         findViewById(R.id.tv_create_account).setOnClickListener(v -> {
-            Intent intent = new Intent(this, RegisterActivity.class);
+            Intent intent = new Intent(context, RegisterActivity.class);
             startActivity(intent);
         });
     }

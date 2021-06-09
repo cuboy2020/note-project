@@ -10,22 +10,22 @@ import java.io.Serializable;
 @Entity
 public class User implements Serializable {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int id; // User ID
 
-    @ColumnInfo
-    private String fullname; // user fullname
+    @ColumnInfo(name="fullname")
+    private String fullName; // user full name
 
-    @ColumnInfo
+    @ColumnInfo(name="email")
     private String email;  // user email
 
-    @ColumnInfo
+    @ColumnInfo(name="address")
     private String address; // user address
 
-    @ColumnInfo
+    @ColumnInfo(name="phone")
     private String phone; // user phone
 
-    @ColumnInfo
+    @ColumnInfo(name="birthdate")
     private String birthdate; // user birthdate
 
     public User() {
@@ -33,13 +33,13 @@ public class User implements Serializable {
 
     @Ignore
     public User(int id,
-                String fullname,
+                String fullName,
                 String email,
                 String address,
                 String phone,
                 String birthdate) {
         this.id = id;
-        this.fullname = fullname;
+        this.fullName = fullName;
         this.email = email;
         this.address = address;
         this.phone = phone;
@@ -54,12 +54,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {

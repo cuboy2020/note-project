@@ -2,6 +2,7 @@ package com.group6.noteproject.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -12,10 +13,10 @@ public class Note {
     @ColumnInfo(name = "user_id")
     private int userId;
 
-    @ColumnInfo
+    @ColumnInfo(name = "title")
     private String title;
 
-    @ColumnInfo
+    @ColumnInfo(name = "content")
     private String content;
 
     @ColumnInfo(name = "is_deleted")
@@ -24,6 +25,7 @@ public class Note {
     public Note() {
     }
 
+    @Ignore
     public Note(int id, int userId, String title, String content, Boolean isDeleted) {
         this.id = id;
         this.userId = userId;

@@ -2,28 +2,32 @@ package com.group6.noteproject.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity
-public class Note {
+public class Note implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int id; // Note's id
 
     @ColumnInfo(name = "user_id")
-    private int userId;
+    private int userId; // Note's user id
 
-    @ColumnInfo
-    private String title;
+    @ColumnInfo(name = "title")
+    private String title; // Note's title
 
-    @ColumnInfo
-    private String content;
+    @ColumnInfo(name = "content")
+    private String content; // Note's content
 
     @ColumnInfo(name = "is_deleted")
-    private Boolean isDeleted;
+    private Boolean isDeleted; // Is note deleted?
 
     public Note() {
     }
 
+    @Ignore
     public Note(int id, int userId, String title, String content, Boolean isDeleted) {
         this.id = id;
         this.userId = userId;

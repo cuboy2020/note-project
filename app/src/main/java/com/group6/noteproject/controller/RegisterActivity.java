@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (validation.validateUsername(regUsername) == 1) {
             etUsername.setError("Username must not be empty!");
             isValidInput = false;
-        } else if (validation.validateUsername(regUsername) == 1) {
+        } else if (validation.validateUsername(regUsername) == 2) {
             etUsername.setError("Username already exists!\n" +
                     "Please enter another username!");
             isValidInput = false;

@@ -15,7 +15,6 @@ public class Validation {
             "|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:" +
             "(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$";
     private final String phoneRegex = "^(\\+84|0)+(3[2-9]|5[6|8|9]|9\\d(?!5)|8[1-9]|7[0|6-9])+([0-9]{7})$";
-
     private UserService userService;
 
     public Validation(UserService userService){
@@ -25,7 +24,7 @@ public class Validation {
     public int validateUsername(String username){
         if (TextUtils.isEmpty(username)) {
             return 1;
-        } else  if (userService.getAccountByUsername(username) != null) {
+        } else if (userService.getAccountByUsername(username) != null) {
             return 2;
         }
 
@@ -55,7 +54,7 @@ public class Validation {
 
     public int validateEmail(String email){
         if (!TextUtils.isEmpty(email) && !email.matches(emailRegex)) {
-            return 2;
+            return 1;
         }
 
         return 0;
@@ -63,7 +62,7 @@ public class Validation {
 
     public int validatePhone(String phone){
         if (!TextUtils.isEmpty(phone) && !phone.matches(phoneRegex)) {
-            return 2;
+            return 1;
         }
 
         return 0;

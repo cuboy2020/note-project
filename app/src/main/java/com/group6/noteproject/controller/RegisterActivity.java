@@ -13,11 +13,13 @@ import com.group6.noteproject.R;
 import com.group6.noteproject.model.Account;
 import com.group6.noteproject.model.User;
 import com.group6.noteproject.service.UserService;
+import com.group6.noteproject.util.Validation;
 
 public class RegisterActivity extends AppCompatActivity {
 
     UserService userService;
     Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,16 +28,9 @@ public class RegisterActivity extends AppCompatActivity {
         context = this;
 
         userService = new UserService(this);
-
-//        Button btnRegister = findViewById(R.id.btn_register);
-//        btnRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//            }
-//        });
     }
 
-    public void onClick(View v){
+    public void onClick(View v) {
         /* Get EditText Views */
         EditText etUsername = findViewById(R.id.et_username_reg);
         EditText etPassword = findViewById(R.id.et_password_reg);
@@ -57,73 +52,68 @@ public class RegisterActivity extends AppCompatActivity {
         String regBirthdate = etBirthdate.getText().toString();
 
         /* Input validation */
-        boolean isValidInput = true;        // flag to check if all input fields are valid
+        Validation validation = new Validation(userService);
 
-        if (TextUtils.isEmpty(regUsername)) {
+        if (validation.validateUsername(regUsername) == 1) {
             etUsername.setError("Username must not be empty!");
-            isValidInput = false;
-        } else {
-            if (userService.getAccountByUsername(regUsername) != null){
-                etUsername.setError("Username already exists!\n" +
-                        "Please enter another username!");
-                isValidInput = false;
-            }
+            return;
+        } else if (validation.validateUsername(regUsername) == 1) {
+            etUsername.setError("Username already exists!\n" +
+                    "Please enter another username!");
+            return;
         }
 
-        if (TextUtils.isEmpty(regPassword)) {
+        if (validation.validatePassword(regPassword, regConfirmPassword) == 1) {
             etPassword.setError("Password must not be empty!");
-            isValidInput = false;
-        } else {
-            if (!regPassword.equals(regConfirmPassword)){
-                etConfirmPassword.setError("Password confirmation must match password!");
-                isValidInput = false;
-            }
+            return;
+        } else if (validation.validatePassword(regPassword, regConfirmPassword) == 2) {
+            etConfirmPassword.setError("Password confirmation must match password!");
+            return;
         }
 
-        if (TextUtils.isEmpty(regFullName)) {
+        if (validation.validateFullName(regFullName) == 1) {
             etFullName.setError("Full Name must not be empty!");
-            isValidInput = false;
+            return;
         }
 
-        if (!TextUtils.isEmpty(regEmail) && !regEmail.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
-                "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
-            etEmail.setError("Email must be in correct format!\nExample: abc@gmail.com");
-            isValidInput = false;
+        if (validation.validateEmail(regEmail) == 1) {
+            etEmail.setError("Email must not be empty!");
+            return;
+        } else if (validation.validateEmail(regEmail) == 2) {
+            etEmail.setError("Email must be in correct format!\n" +
+                    "Example: abc@gmail.com");
+            return;
         }
 
-        if (!TextUtils.isEmpty(regPhone) && !regPhone.matches("^(\\+84|0)+(3[2-9]|5[6|8|9]|9\\d(?!5)|8[1-9]|7[0|6-9])+([0-9]{7})$")){
-            etPhone.setError("Phone must be in correct format!\nExample: +84834567890 or 0834567890");
-            isValidInput = false;
+        if (validation.validatePhone(regPhone) == 1) {
+            etPhone.setError("Phone must not be empty!");
+            return;
+        } else if (validation.validatePhone(regPhone) == 2) {
+            etPhone.setError("Phone must be in correct format!\n" +
+                    "Example: +84834567890 or 0834567890");
+            return;
         }
 
-        if (!TextUtils.isEmpty(regBirthdate) && !regBirthdate.matches("(^(((0[1-9]|1[0-9]|2[0-8])[\\/](0[1-9]|1[012]))|((29|30|31)[\\/](0[13578]|1[02]))|((29|30)[\\/](0[4,6,9]|11)))[\\/](19|[2-9][0-9])\\d\\d$)|" +
-                "(^29[\\/]02[\\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)")){
-            etBirthdate.setError("Date must be in correct format (dd/MM/yyyy)!");
-            isValidInput = false;
-        }
+        Account account = new Account();
+        account.setUsername(regUsername);
+        account.setPassword(regPassword);
 
-        if (isValidInput){
-            Account account = new Account();
-            account.setUsername(regUsername);
-            account.setPassword(regPassword);
+        User user = new User();
+        user.setFullName(regFullName);
+        user.setEmail(regEmail);
+        user.setAddress(regAddress);
+        user.setPhone(regPhone);
+        user.setBirthdate(regBirthdate);
 
-            User user = new User();
-            user.setFullName(regFullName);
-            user.setEmail(regEmail);
-            user.setAddress(regAddress);
-            user.setPhone(regPhone);
-            user.setBirthdate(regBirthdate);
+        boolean registerResult = userService.register(account, user);
 
-            boolean registerResult = userService.register(account, user);
-
-            if (registerResult){
-                Toast.makeText(context, "Registration Successful!",
-                        Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                Toast.makeText(context, "Registration Failed!",
-                        Toast.LENGTH_SHORT).show();
-            }
+        if (registerResult) {
+            Toast.makeText(context, "Registration Successful!",
+                    Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(context, "Registration Failed!",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }

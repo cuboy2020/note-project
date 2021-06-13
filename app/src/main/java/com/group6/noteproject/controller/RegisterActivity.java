@@ -56,41 +56,56 @@ public class RegisterActivity extends AppCompatActivity {
 
         Validation validation = new Validation(userService);
 
-        if (validation.validateUsername(regUsername) == 1) {
+        int validateUsernameResult = validation.validateUsername(regUsername);
+        int validatePasswordResult = validation.validatePassword(regPassword, regConfirmPassword);
+        int validateFullnameResult = validation.validateFullName(regFullName);
+        int validateEmailResult = validation.validateEmail(regEmail);
+        int validatePhoneResult = validation.validatePhone(regPhone);
+        int validateBirthdateResult = validation.validateBirthdate(regBirthdate);
+
+        if (validateUsernameResult == 1) {
             etUsername.setError("Username must not be empty!");
             isValidInput = false;
-        } else if (validation.validateUsername(regUsername) == 2) {
+        } else if (validateUsernameResult == 2) {
             etUsername.setError("Username already exists!\n" +
                     "Please enter another username!");
             isValidInput = false;
         }
 
-        if (validation.validatePassword(regPassword, regConfirmPassword) == 1) {
+        if (validatePasswordResult == 1) {
             etPassword.setError("Password must not be empty!");
             isValidInput = false;
-        } else if (validation.validatePassword(regPassword, regConfirmPassword) == 2){
+        } else if (validatePasswordResult == 2){
             etPassword.setError("Password must contain minimum of 8 characters: at least 1 uppercase letter, \n" +
                     "1 lowercase letter, 1 number and 1 special character");
             isValidInput = false;
-        } else if (validation.validatePassword(regPassword, regConfirmPassword) == 3) {
+        } else if (validatePasswordResult == 3) {
             etConfirmPassword.setError("Password confirmation must match password!");
             isValidInput = false;
         }
 
-        if (validation.validateFullName(regFullName) == 1) {
+        if (validateFullnameResult == 1) {
             etFullName.setError("Full Name must not be empty!");
             isValidInput = false;
         }
 
-        if (validation.validateEmail(regEmail) == 1) {
+        if (validateEmailResult == 1) {
             etEmail.setError("Email must be in correct format!\n" +
                     "Example: abc@gmail.com");
             isValidInput = false;
         }
 
-        if (validation.validatePhone(regPhone) == 1) {
+        if (validatePhoneResult == 1) {
             etPhone.setError("Phone must be in correct format!\n" +
                     "Example: +84834567890 or 0834567890");
+            isValidInput = false;
+        }
+
+        if (validateBirthdateResult == 1){
+            etBirthdate.setError("Birth Date must be in dd/MM/yyyy format!");
+            isValidInput = false;
+        } else if (validateBirthdateResult == 2){
+            etBirthdate.setError("Birth Date must be today or a day in the past!");
             isValidInput = false;
         }
 

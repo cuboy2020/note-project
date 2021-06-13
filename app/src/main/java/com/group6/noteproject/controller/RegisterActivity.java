@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,7 +12,7 @@ import com.group6.noteproject.R;
 import com.group6.noteproject.model.Account;
 import com.group6.noteproject.model.User;
 import com.group6.noteproject.service.UserService;
-import com.group6.noteproject.util.Validation;
+import com.group6.noteproject.util.ValidationUtils;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -54,14 +53,14 @@ public class RegisterActivity extends AppCompatActivity {
         /* Input validation */
         boolean isValidInput = true;        // flag to check if all input fields are valid
 
-        Validation validation = new Validation(userService);
+        ValidationUtils validationUtils = new ValidationUtils(userService);
 
-        int validateUsernameResult = validation.validateUsername(regUsername);
-        int validatePasswordResult = validation.validatePassword(regPassword, regConfirmPassword);
-        int validateFullnameResult = validation.validateFullName(regFullName);
-        int validateEmailResult = validation.validateEmail(regEmail);
-        int validatePhoneResult = validation.validatePhone(regPhone);
-        int validateBirthdateResult = validation.validateBirthdate(regBirthdate);
+        int validateUsernameResult = validationUtils.validateUsername(regUsername);
+        int validatePasswordResult = validationUtils.validatePassword(regPassword, regConfirmPassword);
+        int validateFullnameResult = validationUtils.validateFullName(regFullName);
+        int validateEmailResult = validationUtils.validateEmail(regEmail);
+        int validatePhoneResult = validationUtils.validatePhone(regPhone);
+        int validateBirthdateResult = validationUtils.validateBirthdate(regBirthdate);
 
         if (validateUsernameResult == 1) {
             etUsername.setError("Username must not be empty!");

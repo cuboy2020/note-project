@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Validation {
+public class ValidationUtils {
     private final String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])" +
             "(?=.*\\d)(?=.*[$&+,:;=?@#|'<>.^*()%!-])[A-Za-z\\d$&+,:;=?@#|'<>.^*()%!-]{8,}$";
     private final String emailRegex = "^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*" +
@@ -23,7 +23,7 @@ public class Validation {
     private final SimpleDateFormat dateFormatter;
     private UserService userService;
 
-    public Validation(UserService userService){
+    public ValidationUtils(UserService userService){
         this.dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
         dateFormatter.setLenient(false);
         this.userService = userService;

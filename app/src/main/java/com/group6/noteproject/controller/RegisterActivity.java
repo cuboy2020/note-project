@@ -96,7 +96,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (validatePhoneResult == 1) {
             etPhone.setError("Phone must be in correct format!\n" +
-                    "Example: +84834567890 or 0834567890");
+                    "Example: +84823456789 or 0823456789");
             isValidInput = false;
         }
 

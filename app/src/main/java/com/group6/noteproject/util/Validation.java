@@ -7,6 +7,8 @@ import com.group6.noteproject.service.UserService;
 import java.util.ArrayList;
 
 public class Validation {
+    private final String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])" +
+            "(?=.*\\d)(?=.*[$&+,:;=?@#|'<>.^*()%!-])[A-Za-z\\d$&+,:;=?@#|'<>.^*()%!-]{8,}$";
     private final String emailRegex = "^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*" +
             "|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")" +
             "@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" +
@@ -34,8 +36,10 @@ public class Validation {
 
         if (TextUtils.isEmpty(password)) {
             return 1;
-        } else if (!password.equals(confirmPassword)) {
+        } else if (!password.matches(passwordRegex)) {
             return 2;
+        } else if (!password.equals(confirmPassword)) {
+            return 3;
         }
 
         return 0;
@@ -50,9 +54,7 @@ public class Validation {
     }
 
     public int validateEmail(String email){
-        if (!TextUtils.isEmpty(email)) {
-            return 1;
-        } else if (!email.matches(emailRegex)) {
+        if (!TextUtils.isEmpty(email) && !email.matches(emailRegex)) {
             return 2;
         }
 
@@ -60,9 +62,7 @@ public class Validation {
     }
 
     public int validatePhone(String phone){
-        if (!TextUtils.isEmpty(phone)) {
-            return 1;
-        } else if (!phone.matches(phoneRegex)) {
+        if (!TextUtils.isEmpty(phone) && !phone.matches(phoneRegex)) {
             return 2;
         }
 

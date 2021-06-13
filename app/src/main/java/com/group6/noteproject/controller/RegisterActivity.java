@@ -52,68 +52,70 @@ public class RegisterActivity extends AppCompatActivity {
         String regBirthdate = etBirthdate.getText().toString();
 
         /* Input validation */
+        boolean isValidInput = true;        // flag to check if all input fields are valid
+
         Validation validation = new Validation(userService);
 
         if (validation.validateUsername(regUsername) == 1) {
             etUsername.setError("Username must not be empty!");
-            return;
+            isValidInput = false;
         } else if (validation.validateUsername(regUsername) == 1) {
             etUsername.setError("Username already exists!\n" +
                     "Please enter another username!");
-            return;
+            isValidInput = false;
         }
 
         if (validation.validatePassword(regPassword, regConfirmPassword) == 1) {
             etPassword.setError("Password must not be empty!");
-            return;
-        } else if (validation.validatePassword(regPassword, regConfirmPassword) == 2) {
+            isValidInput = false;
+        } else if (validation.validatePassword(regPassword, regConfirmPassword) == 2){
+            etPassword.setError("Password must contain minimum of 8 characters: at least 1 uppercase letter, \n" +
+                    "1 lowercase letter, 1 number and 1 special character");
+            isValidInput = false;
+        } else if (validation.validatePassword(regPassword, regConfirmPassword) == 3) {
             etConfirmPassword.setError("Password confirmation must match password!");
-            return;
+            isValidInput = false;
         }
 
         if (validation.validateFullName(regFullName) == 1) {
             etFullName.setError("Full Name must not be empty!");
-            return;
+            isValidInput = false;
         }
 
         if (validation.validateEmail(regEmail) == 1) {
-            etEmail.setError("Email must not be empty!");
-            return;
-        } else if (validation.validateEmail(regEmail) == 2) {
             etEmail.setError("Email must be in correct format!\n" +
                     "Example: abc@gmail.com");
-            return;
+            isValidInput = false;
         }
 
         if (validation.validatePhone(regPhone) == 1) {
-            etPhone.setError("Phone must not be empty!");
-            return;
-        } else if (validation.validatePhone(regPhone) == 2) {
             etPhone.setError("Phone must be in correct format!\n" +
                     "Example: +84834567890 or 0834567890");
-            return;
+            isValidInput = false;
         }
 
-        Account account = new Account();
-        account.setUsername(regUsername);
-        account.setPassword(regPassword);
+        if (isValidInput) {
+            Account account = new Account();
+            account.setUsername(regUsername);
+            account.setPassword(regPassword);
 
-        User user = new User();
-        user.setFullName(regFullName);
-        user.setEmail(regEmail);
-        user.setAddress(regAddress);
-        user.setPhone(regPhone);
-        user.setBirthdate(regBirthdate);
+            User user = new User();
+            user.setFullName(regFullName);
+            user.setEmail(regEmail);
+            user.setAddress(regAddress);
+            user.setPhone(regPhone);
+            user.setBirthdate(regBirthdate);
 
-        boolean registerResult = userService.register(account, user);
+            boolean registerResult = userService.register(account, user);
 
-        if (registerResult) {
-            Toast.makeText(context, "Registration Successful!",
-                    Toast.LENGTH_SHORT).show();
-            finish();
-        } else {
-            Toast.makeText(context, "Registration Failed!",
-                    Toast.LENGTH_SHORT).show();
+            if (registerResult) {
+                Toast.makeText(context, "Registration Successful!",
+                        Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(context, "Registration Failed!",
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

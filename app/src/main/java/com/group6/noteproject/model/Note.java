@@ -7,13 +7,16 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+/* Note Entity */
 @Entity
 public class Note implements Serializable {
+
+    /* Entity Properties */
     @PrimaryKey(autoGenerate = true)
-    private int id; // Note's id
+    private int id; // Note's ID
 
     @ColumnInfo(name = "user_id")
-    private int userId; // Note's user id
+    private int userId; // Note's user ID (which user created the note)
 
     @ColumnInfo(name = "title")
     private String title; // Note's title
@@ -24,6 +27,7 @@ public class Note implements Serializable {
     @ColumnInfo(name = "is_deleted")
     private Boolean isDeleted; // Is note deleted?
 
+    /* Constructors */
     public Note() {
     }
 
@@ -36,6 +40,7 @@ public class Note implements Serializable {
         this.isDeleted = isDeleted;
     }
 
+    /* Getters and Setters */
     public int getId() {
         return id;
     }

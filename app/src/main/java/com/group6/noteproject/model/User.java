@@ -7,27 +7,30 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+/* User Entity */
 @Entity
 public class User implements Serializable {
 
+    /* Entity Properties */
     @PrimaryKey(autoGenerate = true)
-    private int id; // User ID
+    private int id; // User's ID
 
     @ColumnInfo(name="fullname")
-    private String fullName; // user full name
+    private String fullName; // User's full name
 
     @ColumnInfo(name="email")
-    private String email;  // user email
+    private String email;  // User's email
 
     @ColumnInfo(name="address")
-    private String address; // user address
+    private String address; // User's address
 
     @ColumnInfo(name="phone")
-    private String phone; // user phone
+    private String phone; // User's phone
 
     @ColumnInfo(name="birthdate")
-    private String birthdate; // user birthdate
+    private String birthdate; // User's birth date
 
+    /* Constructors */
     public User() {
     }
 
@@ -46,6 +49,7 @@ public class User implements Serializable {
         this.birthdate = birthdate;
     }
 
+    /* Getters and Setters */
     public int getId() {
         return id;
     }

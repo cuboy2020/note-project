@@ -42,25 +42,29 @@ public class NoteService {
 
     /**
      * Add/insert new note
-     * @param note note to add/insert
+     * @param note the note to insert
      * @return insert result
      */
     public boolean insertNote(Note note){
+        // set the title to "Untitled" if note does not have a title
         if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
             note.setTitle("Untitled");
         }
+
         return noteDAO.insertNote(note) > 0;
     }
 
     /**
      * Update note
-     * @param note note to update
+     * @param note the updated note
      * @return update result
      */
     public boolean updateNote(Note note){
+        // set the title to "Untitled" if note does not have a title
         if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
             note.setTitle("Untitled");
         }
+
         return noteDAO.updateNote(note) > 0;
     }
 

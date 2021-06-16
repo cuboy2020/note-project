@@ -136,6 +136,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Logout action
+     */
+    public void logOut(){
+        finish();
+    }
+
+    /**
      * Floating add button onclick event
      *
      * @param v

@@ -93,6 +93,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
     public void backToHome(View v) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(Constraint.ACCOUNT_KEY, account);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 }

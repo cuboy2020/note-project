@@ -6,7 +6,6 @@ import com.group6.noteproject.DAO.NoteDAO;
 import com.group6.noteproject.database.AppDatabase;
 import com.group6.noteproject.model.Note;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NoteService {
@@ -43,6 +42,9 @@ public class NoteService {
      * @return insert success status
      */
     public boolean insertNote(Note note){
+        if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
+            note.setTitle("untitled");
+        }
         return noteDAO.insertNote(note) > 0;
     }
 
@@ -52,6 +54,9 @@ public class NoteService {
      * @return update success status
      */
     public boolean updateNote(Note note){
+        if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
+            note.setTitle("untitled");
+        }
         return noteDAO.updateNote(note) > 0;
     }
 

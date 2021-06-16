@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(account != null){
                     Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra(Constraint.ACCOUNT_KEY, account);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                 } else{
                     Toast.makeText(context, "The Username or Password is Incorrect",
@@ -63,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         // switch to register intent
         findViewById(R.id.tv_create_account).setOnClickListener(v -> {
             Intent intent = new Intent(context, RegisterActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
     }

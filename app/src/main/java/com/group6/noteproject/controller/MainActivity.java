@@ -20,7 +20,6 @@ import com.group6.noteproject.service.NoteService;
 import com.group6.noteproject.util.Constraint;
 import com.group6.noteproject.view.RecyclerViewTouchListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -137,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v) {
         Intent intent = new Intent(this, ViewEditNoteActivity.class);
         intent.putExtra(Constraint.ACCOUNT_KEY, account);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
 }

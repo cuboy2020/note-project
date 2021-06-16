@@ -1,19 +1,19 @@
 package com.group6.noteproject.controller;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.group6.noteproject.R;
 import com.group6.noteproject.model.Account;
-import com.group6.noteproject.model.User;
 import com.group6.noteproject.service.UserService;
 import com.group6.noteproject.util.Constraint;
 
@@ -58,8 +58,42 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra(Constraint.ACCOUNT_KEY, account);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(context, "The Username or Password is Incorrect",
-                            Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
+                    alert.setTitle("Alert");                                      // set dialog
+                    // title
+                    alert.setMessage("Username or password is incorrect?");     // set dialog
+                    // message
+
+                    // action if confirmed (Create New Account)
+                    alert.setPositiveButton("Create New Account",
+                            new DialogInterface.OnClickListener() {
+
+                                /**
+                                 * To register activity
+                                 * @param dialog dialog
+                                 * @param which which
+                                 */
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(context, RegisterActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+
+                    // action if cancelled (OK)
+                    alert.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        /**
+                         * Closes the dialog
+                         * @param dialog dialog
+                         * @param which which
+                         */
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    alert.show();           // show the alert dialog
                 }
             }
         });

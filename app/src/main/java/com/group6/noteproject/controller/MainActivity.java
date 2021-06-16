@@ -149,8 +149,10 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Logout action
+     *
+     * @Param v view
      */
-    public void logOut(){
+    public void logOut(View v){
         finish();
     }
 

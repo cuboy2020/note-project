@@ -43,7 +43,7 @@ public class NoteService {
      */
     public boolean insertNote(Note note){
         if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
-            note.setTitle("untitled");
+            note.setTitle("Untitled");
         }
         return noteDAO.insertNote(note) > 0;
     }
@@ -55,7 +55,7 @@ public class NoteService {
      */
     public boolean updateNote(Note note){
         if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
-            note.setTitle("untitled");
+            note.setTitle("Untitled");
         }
         return noteDAO.updateNote(note) > 0;
     }

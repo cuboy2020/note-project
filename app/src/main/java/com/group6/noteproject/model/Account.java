@@ -7,18 +7,21 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
+/* Account Entity */
 @Entity
 public class Account implements Serializable {
 
+    /* Entity Properties */
     @PrimaryKey(autoGenerate = true)
-    private int id; // Account id
+    private int id; // Account's ID
 
     @ColumnInfo(name="username")
-    private String username; // Account username
+    private String username; // Account's username
 
     @ColumnInfo(name="password")
-    private String password; // Account password
+    private String password; // Account's password
 
+    /* Constructors */
     public Account() {
     }
 
@@ -29,6 +32,7 @@ public class Account implements Serializable {
         this.password = password;
     }
 
+    /* Getters and Setters */
     public int getId() {
         return id;
     }

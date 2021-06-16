@@ -10,9 +10,13 @@ import java.util.List;
 
 public class NoteService {
 
-    AppDatabase appDatabase;
-    NoteDAO noteDAO;
+    AppDatabase appDatabase;    // note database
+    NoteDAO noteDAO;            // note DAO
 
+    /**
+     * Constructor
+     * @param context context of activity
+     */
     public NoteService(Context context) {
         appDatabase = AppDatabase.getInstance(context);
         this.noteDAO = appDatabase.noteDAO();
@@ -37,33 +41,37 @@ public class NoteService {
     }
 
     /**
-     * Insert new note
-     * @param note note object
-     * @return insert success status
+     * Add/insert new note
+     * @param note the note to insert
+     * @return insert result
      */
     public boolean insertNote(Note note){
+        // set the title to "Untitled" if note does not have a title
         if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
-            note.setTitle("untitled");
+            note.setTitle("Untitled");
         }
+
         return noteDAO.insertNote(note) > 0;
     }
 
     /**
      * Update note
-     * @param note updated note
-     * @return update success status
+     * @param note the updated note
+     * @return update result
      */
     public boolean updateNote(Note note){
+        // set the title to "Untitled" if note does not have a title
         if(note.getTitle().isEmpty() || note.getTitle().equalsIgnoreCase("")){
-            note.setTitle("untitled");
+            note.setTitle("Untitled");
         }
+
         return noteDAO.updateNote(note) > 0;
     }
 
     /**
      * Delete note
-     * @param note note want to delete
-     * @return delete success status
+     * @param note note to delete
+     * @return delete result
      */
     public boolean deleteNote(Note note){
         return noteDAO.deleteNote(note) > 0;

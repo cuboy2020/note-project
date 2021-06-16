@@ -24,42 +24,49 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private NoteService noteService;
-    private Account account;
-    private RecyclerView recyclerView;
-    private NoteAdapter noteAdapter;
-    private List<Note> notes;
+    private NoteService noteService;        // note service
+    private Account account;                // user's account object
+    private RecyclerView recyclerView;      // recycler view object
+    private NoteAdapter noteAdapter;        // note adapter
+    private List<Note> notes;               // list of notes of user
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        noteService = new NoteService(this);
-        account = (Account) getIntent().getSerializableExtra(Constraint.ACCOUNT_KEY);
-        notes = noteService.getNotesByUserId(account.getId());
+        noteService = new NoteService(this);                                     // instantiate note service
+        account = (Account) getIntent().getSerializableExtra(Constraint.ACCOUNT_KEY);   // user's account
+        notes = noteService.getNotesByUserId(account.getId());                          // get user's note list
 
-        recyclerView = findViewById(R.id.rv_notes);
+        recyclerView = findViewById(R.id.rv_notes);                 // get the recycler view by ID
 
-        noteAdapter = new NoteAdapter(this, notes);
+        noteAdapter = new NoteAdapter(this, notes);          // instantiate note adapter
 
-        recyclerView.setAdapter(noteAdapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(noteAdapter);                       // set note adapter to recycler view
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(),
+                DividerItemDecoration.VERTICAL));                   // set horizontal bar to separate notes in list
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));           // set layout
 
+        /* Recycler View's item OnClick Listener */
         recyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(this, recyclerView, new RecyclerViewTouchListener.ClickListener() {
+            /**
+             * Open popup menu to edit or delete note
+             * @param view view
+             * @param position note position in list
+             */
             @Override
             public void onClick(View view, int position) {
-                int noteId = noteAdapter.getNoteId(position);
-                Note note = noteService.getNoteById(noteId);
+                int noteId = noteAdapter.getNoteId(position);       // get note ID by position
+                Note note = noteService.getNoteById(noteId);        // get note by note ID
 
                 /* Create popup menu and processing logic */
                 PopupMenu popupMenu = new PopupMenu(MainActivity.this, view);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     /**
                      * Opens popup menu on note click
-                     * @param item
-                     * @return
+                     * @param item menu item
+                     * @return true if popup menu item is clicked, false otherwise
                      */
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
@@ -79,9 +86,11 @@ public class MainActivity extends AppCompatActivity {
                             case R.id.delete_note_item:
                                 /* Show dialog to confirm user action */
                                 AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
-                                alert.setTitle("Delete")
-                                        .setMessage("Are you sure you want to delete this note?")
-                                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                alert.setTitle("Delete Note");                                      // set dialog title
+                                alert.setMessage("Are you sure you want to delete this note?");     // set dialog message
+
+                                // action if confirmed (Yes)
+                                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                             /**
                                              * Delete note in DB and update adapter's data
                                              * @param dialog
@@ -95,12 +104,14 @@ public class MainActivity extends AppCompatActivity {
                                                 notes.remove(position);
                                                 noteAdapter.notifyItemRemoved(position);
                                             }
-                                        })
-                                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                        });
+
+                                // action if cancelled (No)
+                                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
                                             /**
                                              * Closes the dialog
-                                             * @param dialog
-                                             * @param which
+                                             * @param dialog dialog
+                                             * @param which which
                                              */
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
@@ -117,8 +128,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                popupMenu.inflate(R.menu.popup_menu);
-                popupMenu.show();
+                popupMenu.inflate(R.menu.popup_menu);   // inflate the popup menu
+                popupMenu.show();                       // show the popup menu
             }
 
             @Override
@@ -133,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
+        // do nothing
     }
 
     /**
@@ -143,14 +155,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Floating add button onclick event
+     * Floating Add button OnClick event
      *
-     * @param v
+     * @param v view
      */
     public void onClick(View v) {
+        /* Create intent to move to View Edit Note Activty to add note */
         Intent intent = new Intent(this, ViewEditNoteActivity.class);
-        intent.putExtra(Constraint.ACCOUNT_KEY, account);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.putExtra(Constraint.ACCOUNT_KEY, account);                                   // set extra
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);   // set flags
         startActivity(intent);
     }
 }

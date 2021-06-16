@@ -86,6 +86,17 @@ public class ViewEditNoteActivity extends AppCompatActivity {
     }
 
     /**
+     * Custom on back pressed action navigate to home
+     */
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra(Constraint.ACCOUNT_KEY, account);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    /**
      * Go back to main activity
      *
      * @param v

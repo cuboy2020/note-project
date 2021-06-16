@@ -129,6 +129,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Disable back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+    }
+
+    /**
      * Floating add button onclick event
      *
      * @param v

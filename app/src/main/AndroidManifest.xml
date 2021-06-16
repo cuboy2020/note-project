@@ -11,7 +11,7 @@
         android:theme="@style/Theme.NoteProject">
         <activity
             android:name=".controller.LoginActivity"
-            android:label="Login">
+            android:label="Note App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -69,6 +69,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
             note.setDeleted(false);
             if (noteService.insertNote(note)) {
                 Toast.makeText(this, "Note saved!!!", Toast.LENGTH_SHORT).show();
+                goHome();
             } else {
                 Toast.makeText(this, "Save note failed!!!", Toast.LENGTH_SHORT).show();
             }
@@ -90,10 +91,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(Constraint.ACCOUNT_KEY, account);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        goHome();
     }
 
     /**
@@ -102,6 +100,10 @@ public class ViewEditNoteActivity extends AppCompatActivity {
      * @param v
      */
     public void backToHome(View v) {
+        goHome();
+    }
+
+    public void goHome(){
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(Constraint.ACCOUNT_KEY, account);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

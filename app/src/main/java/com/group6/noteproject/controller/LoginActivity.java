@@ -19,26 +19,22 @@ import com.group6.noteproject.util.Constraint;
 
 public class LoginActivity extends AppCompatActivity {
 
-    UserService userService;
-    Context context;
+    UserService userService;    // user service
+    Context context;            // login activity's context
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // disable night mode in application
+        // disable night mode in the application
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-        context = this;
+        context = this;         // login activity's context
 
-        userService = new UserService(this);
-        Account account = new Account();
-        account.setUsername("thang");
-        account.setPassword("123");
-        User user = new User();
-        userService.register(account, user);
+        userService = new UserService(this);    // instantiate user service
 
-        // Create login button onclick action
+        // Login button and its OnClick action
         Button btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             /**
@@ -48,17 +44,21 @@ public class LoginActivity extends AppCompatActivity {
              */
             @Override
             public void onClick(View v) {
+                /* Values from text fields on screen */
                 EditText txtUsername = findViewById(R.id.et_username_login);
                 EditText txtPassword = findViewById(R.id.et_password_login);
+
+                // login using service
                 Account account = userService.logIn(txtUsername.getText().toString(),
                         txtPassword.getText().toString());
 
-                if(account != null){
+                // if successful, redirect to main activity; else, shows toast message
+                if (account != null) {
                     Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra(Constraint.ACCOUNT_KEY, account);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
-                } else{
+                } else {
                     Toast.makeText(context, "The Username or Password is Incorrect",
                             Toast.LENGTH_SHORT).show();
                 }

@@ -1,12 +1,12 @@
 package com.group6.noteproject.controller;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.group6.noteproject.R;
 import com.group6.noteproject.model.Account;
@@ -16,17 +16,17 @@ import com.group6.noteproject.util.ValidationUtils;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    UserService userService;
-    Context context;
+    UserService userService;                            // user service
+    Context context;                                    // register activity's context
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        context = this;
+        context = this;                                 // register activity's context
 
-        userService = new UserService(this);
+        userService = new UserService(this);     // instantiate user service
     }
 
     public void onClick(View v) {
@@ -53,14 +53,17 @@ public class RegisterActivity extends AppCompatActivity {
         /* Input validation */
         boolean isValidInput = true;        // flag to check if all input fields are valid
 
-        ValidationUtils validationUtils = new ValidationUtils(userService);
+        ValidationUtils validationUtils = new ValidationUtils(userService);     // instantiate validation utils
 
+        /* Validate inputs and store validation results */
         int validateUsernameResult = validationUtils.validateUsername(regUsername);
         int validatePasswordResult = validationUtils.validatePassword(regPassword, regConfirmPassword);
-        int validateFullnameResult = validationUtils.validateFullName(regFullName);
+        int validateFullNameResult = validationUtils.validateFullName(regFullName);
         int validateEmailResult = validationUtils.validateEmail(regEmail);
         int validatePhoneResult = validationUtils.validatePhone(regPhone);
         int validateBirthdateResult = validationUtils.validateBirthdate(regBirthdate);
+
+        /* Set errors and mark inputs as invalid according to the validation results */
 
         if (validateUsernameResult == 1) {
             etUsername.setError("Username must not be empty!");
@@ -83,7 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
             isValidInput = false;
         }
 
-        if (validateFullnameResult == 1) {
+        if (validateFullNameResult == 1) {
             etFullName.setError("Full Name must not be empty!");
             isValidInput = false;
         }
@@ -108,11 +111,14 @@ public class RegisterActivity extends AppCompatActivity {
             isValidInput = false;
         }
 
+        /* If all input fields are valid */
         if (isValidInput) {
+            // create new account object and set account info
             Account account = new Account();
             account.setUsername(regUsername);
             account.setPassword(regPassword);
 
+            // create new user object and set user info
             User user = new User();
             user.setFullName(regFullName);
             user.setEmail(regEmail);
@@ -120,12 +126,13 @@ public class RegisterActivity extends AppCompatActivity {
             user.setPhone(regPhone);
             user.setBirthdate(regBirthdate);
 
-            boolean registerResult = userService.register(account, user);
+            boolean registerResult = userService.register(account, user);   // register the user
 
+            // if registered successfully, shows message and returns to login screen, else only show message
             if (registerResult) {
                 Toast.makeText(context, "Registration Successful!",
                         Toast.LENGTH_SHORT).show();
-                finish();
+                finish();                                                   // finish the activity
             } else {
                 Toast.makeText(context, "Registration Failed!",
                         Toast.LENGTH_SHORT).show();

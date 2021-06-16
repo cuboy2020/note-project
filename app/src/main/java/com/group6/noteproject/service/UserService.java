@@ -11,10 +11,14 @@ import com.group6.noteproject.model.User;
 
 public class UserService {
 
-    AppDatabase appDatabase;
-    UserDAO userDAO;
-    AccountDAO accountDAO;
+    AppDatabase appDatabase;    // note database
+    UserDAO userDAO;            // user DAO
+    AccountDAO accountDAO;      // account DAO
 
+    /**
+     * Constructor
+     * @param context context of activity
+     */
     public UserService(Context context) {
         appDatabase = AppDatabase.getInstance(context);
         this.userDAO = appDatabase.userDAO();
@@ -47,9 +51,9 @@ public class UserService {
     }
 
     /**
-     *
-     * @param username
-     * @return
+     * Get an account by its username
+     * @param username username of the account
+     * @return Account object
      */
     public Account getAccountByUsername(String username){
         Account account = accountDAO.getAccountByUsername(username);
@@ -58,9 +62,9 @@ public class UserService {
     }
 
     /**
-     *
-     * @param id
-     * @return
+     * Get an account by its ID
+     * @param id ID of the account
+     * @return Account object
      */
     public Account getAccountById(int id){
         Account account = accountDAO.getAccountById(id);

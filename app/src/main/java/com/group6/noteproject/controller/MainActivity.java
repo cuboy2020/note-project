@@ -93,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
                                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                             /**
                                              * Delete note in DB and update adapter's data
-                                             * @param dialog
-                                             * @param which
+                                             * @param dialog dialog
+                                             * @param which which
                                              */
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
@@ -153,9 +153,40 @@ public class MainActivity extends AppCompatActivity {
      * @Param v view
      */
     public void logOut(View v){
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);   // set flags
-        startActivity(intent);
+        /* Show dialog to confirm user action */
+        AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+        alert.setTitle("Logout Confirmation");                              // set dialog title
+        alert.setMessage("Are you sure you want to log out?");              // set dialog message
+
+        // action if confirmed (Yes)
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            /**
+             * Log the user out (redirect to Login screen)
+             * @param dialog dialog
+             * @param which which
+             */
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);   // set flags
+                startActivity(intent);
+            }
+        });
+
+        // action if cancelled (No)
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            /**
+             * Closes the dialog
+             * @param dialog dialog
+             * @param which which
+             */
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alert.show();           // show the alert dialog
     }
 
     /**

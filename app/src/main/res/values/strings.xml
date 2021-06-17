@@ -3,4 +3,5 @@
 
     <!--Login layout-->
     <string name="login_title">LOG IN</string>
+    <string name="create_account"><u>Create an account</u></string>
 </resources>

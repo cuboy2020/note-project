@@ -89,6 +89,9 @@ public class RegisterActivity extends AppCompatActivity {
         if (validateFullNameResult == 1) {
             etFullName.setError("Full Name must not be empty!");
             isValidInput = false;
+        } else if (validateFullNameResult == 2){
+            etFullName.setError("Full Name must have at least 2 words, with a whitespace between words!");
+            isValidInput = false;
         }
 
         if (validateEmailResult == 1) {

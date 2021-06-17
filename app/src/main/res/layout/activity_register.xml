@@ -208,12 +208,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ems="8"
+            android:hint="dd/MM/yyyy"
             android:inputType="date"
-            tools:layout_editor_absoluteX="203dp"
-            tools:layout_editor_absoluteY="493dp"
             app:layout_constraintEnd_toEndOf="@+id/tv_birthdate_reg"
             app:layout_constraintStart_toStartOf="@+id/tv_birthdate_reg"
-            app:layout_constraintTop_toBottomOf="@+id/tv_birthdate_reg"/>
+            app:layout_constraintTop_toBottomOf="@+id/tv_birthdate_reg" />
 
         <Button
             android:id="@+id/btn_register"

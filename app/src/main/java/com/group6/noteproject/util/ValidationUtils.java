@@ -13,6 +13,7 @@ import java.util.Date;
 public class ValidationUtils {
     private final String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])" +
             "(?=.*\\d)(?=.*[$&+,:;=?@#|'<>.^*()%!-])[A-Za-z\\d$&+,:;=?@#|'<>.^*()%!-]{8,}$";
+    private final String fullNameRegex = "^([a-zA-Z]{2,})(\\s[a-zA-Z]{2,})+$";
     private final String emailRegex = "^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*" +
             "|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")" +
             "@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" +
@@ -75,10 +76,13 @@ public class ValidationUtils {
      * @param fullName full name to validate
      * @return  0 if valid
      *          1 if empty
+     *          2 if doesn't match regex
      */
     public int validateFullName(String fullName){
         if (TextUtils.isEmpty(fullName)) {
             return 1;
+        } else if (!fullName.matches(fullNameRegex)) {
+            return 2;
         }
 
         return 0;

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,13 +57,13 @@ public class LoginActivity extends AppCompatActivity {
                 if (account != null) {
                     Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra(Constraint.ACCOUNT_KEY, account);
+                    Toast.makeText(context, "Login successful!",
+                            Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 } else {
                     AlertDialog.Builder alert = new AlertDialog.Builder(LoginActivity.this);
-                    alert.setTitle("Alert");                                      // set dialog
-                    // title
-                    alert.setMessage("Username or password is incorrect?");     // set dialog
-                    // message
+                    alert.setTitle("Alert");                                    // set dialog title
+                    alert.setMessage("Username or password is incorrect?");     // set dialog message
 
                     // action if confirmed (Create New Account)
                     alert.setPositiveButton("Create New Account",

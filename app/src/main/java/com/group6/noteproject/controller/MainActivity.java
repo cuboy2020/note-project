@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
      * @param v view
      */
     public void onClick(View v) {
-        /* Create intent to move to View Edit Note Activty to add note */
+        /* Create intent to move to View Edit Note Activity to add note */
         Intent intent = new Intent(this, ViewEditNoteActivity.class);
         intent.putExtra(Constraint.ACCOUNT_KEY, account);                                   // set extra
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);   // set flags

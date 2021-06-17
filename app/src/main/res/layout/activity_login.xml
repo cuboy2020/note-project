@@ -14,14 +14,14 @@
             android:id="@+id/tv_note_app"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp"
             android:text="Note App"
             android:textSize="34sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.114"
+            app:layout_constraintBottom_toTopOf="@id/tv_username_login"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.110000014" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_login"
@@ -42,7 +42,7 @@
             android:id="@+id/tv_create_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             android:layout_marginBottom="32dp"
             android:clickable="true"
             android:text="Create an account"
@@ -56,25 +56,28 @@
 
         <EditText
             android:id="@+id/et_username_login"
-            android:layout_width="344dp"
+            android:layout_width="0dp"
             android:layout_height="49dp"
+            android:layout_marginEnd="20dp"
             android:ems="7"
             android:hint="Your username"
             android:inputType="textPersonName"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_password_login"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_username_login"
             app:layout_constraintTop_toBottomOf="@+id/tv_username_login" />
 
         <TextView
             android:id="@+id/tv_username_login"
-            android:layout_width="125dp"
+            android:layout_width="0dp"
             android:layout_height="60dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="75dp"
+            android:layout_marginEnd="20dp"
             android:labelFor="@id/et_username_login"
             android:text="Username"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/et_username_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.11"
@@ -83,25 +86,29 @@
 
         <TextView
             android:id="@+id/tv_password_login"
-            android:layout_width="125dp"
+            android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
             android:labelFor="@id/et_password_login"
             android:text="Password"
-            app:autoSizeTextType="uniform"
+            android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/et_password_login"
-            app:layout_constraintStart_toStartOf="@+id/et_username_login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_username_login"
             app:layout_constraintTop_toBottomOf="@+id/et_username_login" />
 
         <EditText
             android:id="@+id/et_password_login"
-            android:layout_width="344dp"
+            android:layout_width="0dp"
             android:layout_height="49dp"
+            android:layout_marginEnd="20dp"
             android:ems="7"
             android:hint="Your password"
             android:inputType="textPassword"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_login"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_password_login"
             app:layout_constraintTop_toBottomOf="@+id/tv_password_login" />
 

@@ -153,7 +153,9 @@ public class MainActivity extends AppCompatActivity {
      * @Param v view
      */
     public void logOut(View v){
-        finish();
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);   // set flags
+        startActivity(intent);
     }
 
     /**

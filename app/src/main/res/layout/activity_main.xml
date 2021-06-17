@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:onClick="logOut"
-                android:text="Logout"
+                android:text="Log&#10;out"
                 android:textAlignment="center" />
         </LinearLayout>
 

@@ -17,7 +17,7 @@ import com.group6.noteproject.R;
 import com.group6.noteproject.model.Account;
 import com.group6.noteproject.model.Note;
 import com.group6.noteproject.service.NoteService;
-import com.group6.noteproject.util.Constraint;
+import com.group6.noteproject.util.Constant;
 import com.group6.noteproject.view.RecyclerViewTouchListener;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         noteService = new NoteService(this);                                     // instantiate note service
-        account = (Account) getIntent().getSerializableExtra(Constraint.ACCOUNT_KEY);   // user's account
+        account = (Account) getIntent().getSerializableExtra(Constant.ACCOUNT_KEY);   // user's account
         notes = noteService.getNotesByUserId(account.getId());                          // get user's note list
 
         recyclerView = findViewById(R.id.rv_notes);                 // get the recycler view by ID
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View v) {
         /* Create intent to move to View Edit Note Activity to add note */
         Intent intent = new Intent(this, ViewEditNoteActivity.class);
-        intent.putExtra(Constraint.ACCOUNT_KEY, account);                                   // set extra
+        intent.putExtra(Constant.ACCOUNT_KEY, account);                                   // set extra
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);   // set flags
         startActivity(intent);
     }

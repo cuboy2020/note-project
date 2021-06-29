@@ -12,7 +12,7 @@ import com.group6.noteproject.DAO.UserDAO;
 import com.group6.noteproject.model.Account;
 import com.group6.noteproject.model.Note;
 import com.group6.noteproject.model.User;
-import com.group6.noteproject.util.Constraint;
+import com.group6.noteproject.util.Constant;
 
 @Database(entities = {Account.class, Note.class, User.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
@@ -29,7 +29,7 @@ public abstract class AppDatabase extends RoomDatabase {
             dbInstance =
                     Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class,
-                            Constraint.DATABASE_NAME).allowMainThreadQueries().build();
+                            Constant.DATABASE_NAME).allowMainThreadQueries().build();
         }
         return dbInstance;
     }

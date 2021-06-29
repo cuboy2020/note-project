@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.group6.noteproject.R;
 import com.group6.noteproject.model.Account;
 import com.group6.noteproject.service.UserService;
-import com.group6.noteproject.util.Constraint;
+import com.group6.noteproject.util.Constant;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 // if successful, redirect to main activity; else, shows toast message
                 if (account != null) {
                     Intent intent = new Intent(context, MainActivity.class);
-                    intent.putExtra(Constraint.ACCOUNT_KEY, account);
+                    intent.putExtra(Constant.ACCOUNT_KEY, account);
                     Toast.makeText(context, "Login successful!",
                             Toast.LENGTH_SHORT).show();
                     startActivity(intent);

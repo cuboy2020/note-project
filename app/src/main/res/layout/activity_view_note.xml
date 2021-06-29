@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    app:layout_constraintBottom_toBottomOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,16 +39,16 @@
             android:layout_marginBottom="10dp"
             android:background="@android:color/transparent"
             android:ems="10"
+            android:fillViewport="true"
             android:gravity="start|top"
             android:hint="Note Content"
             android:inputType="textMultiLine"
+            android:overScrollMode="always"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
-            android:textSize="20sp"
-            android:fillViewport="true"
-            android:overScrollMode="always"
             android:scrollbarStyle="insideInset"
             android:scrollbars="vertical"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -60,17 +61,17 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/purple_500"
             android:clickable="true"
             android:focusable="true"
-            android:src="@drawable/ic_save"
             android:onClick="onSave"
-            android:backgroundTint="@color/purple_500"
-            android:tint="@color/white_50"
-            app:elevation="0dp"
-            app:tint="@color/white_50"
+            android:src="@drawable/ic_save"
+            android:tint="@color/white"
             app:borderWidth="0dp"
+            app:elevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white" />
 
         <ImageButton
             android:id="@+id/imgbtn_back"

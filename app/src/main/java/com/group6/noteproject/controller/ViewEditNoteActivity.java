@@ -14,7 +14,7 @@ import com.group6.noteproject.model.Account;
 import com.group6.noteproject.model.Note;
 import com.group6.noteproject.service.NoteService;
 import com.group6.noteproject.service.UserService;
-import com.group6.noteproject.util.Constraint;
+import com.group6.noteproject.util.Constant;
 
 public class ViewEditNoteActivity extends AppCompatActivity {
 
@@ -38,8 +38,8 @@ public class ViewEditNoteActivity extends AppCompatActivity {
         passedIntent = getIntent();     // get the passed intent
 
         /* Set the account object according to passed intent */
-        if (passedIntent.hasExtra(Constraint.ACCOUNT_KEY)){
-            account = (Account) passedIntent.getSerializableExtra(Constraint.ACCOUNT_KEY);
+        if (passedIntent.hasExtra(Constant.ACCOUNT_KEY)){
+            account = (Account) passedIntent.getSerializableExtra(Constant.ACCOUNT_KEY);
         } else {
             account = userService.getAccountById(passedIntent.getIntExtra("noteUserId", -1));
         }
@@ -121,7 +121,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
     public void goHome(){
         /* Go back to main activity */
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra(Constraint.ACCOUNT_KEY, account);
+        intent.putExtra(Constant.ACCOUNT_KEY, account);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }

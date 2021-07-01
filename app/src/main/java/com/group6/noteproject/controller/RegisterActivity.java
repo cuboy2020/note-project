@@ -16,8 +16,8 @@ import com.group6.noteproject.util.ValidationUtils;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    UserService userService;                            // user service
-    Context context;                                    // register activity's context
+    private UserService userService;                            // user service
+    private Context context;                                    // register activity's context
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

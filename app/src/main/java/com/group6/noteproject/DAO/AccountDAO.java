@@ -12,6 +12,7 @@ public interface AccountDAO {
 
     /**
      * Log an user in
+     *
      * @param username account's username
      * @param password account's password
      * @return Account object
@@ -21,6 +22,7 @@ public interface AccountDAO {
 
     /**
      * Get an account by its ID
+     *
      * @param accountId account's ID
      * @return Account object
      */
@@ -29,6 +31,7 @@ public interface AccountDAO {
 
     /**
      * Get an account by its username
+     *
      * @param username account's username
      * @return Account object
      */
@@ -37,6 +40,7 @@ public interface AccountDAO {
 
     /**
      * Insert an account into database
+     *
      * @param account the account to insert
      * @return inserted account's row ID
      */

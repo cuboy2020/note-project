@@ -61,7 +61,7 @@ public class ValidationUtils {
      * @return  0 if valid
      *          1 if password is empty
      *          2 if password doesn't match regex
-     *          3 if confirm password doesn't match
+     *          3 if confirm password doesn't match password
      */
     public int validatePassword(String password, String confirmPassword){
         if (TextUtils.isEmpty(password)) {

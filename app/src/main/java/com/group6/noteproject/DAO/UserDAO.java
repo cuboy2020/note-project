@@ -10,6 +10,7 @@ public interface UserDAO {
 
     /**
      * Insert a user into database
+     *
      * @param user user to insert
      * @return inserted user's row ID
      */

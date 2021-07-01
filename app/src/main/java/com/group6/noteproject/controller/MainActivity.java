@@ -91,33 +91,33 @@ public class MainActivity extends AppCompatActivity {
 
                                 // action if confirmed (Yes)
                                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                            /**
-                                             * Delete note in DB and update adapter's data
-                                             * @param dialog dialog
-                                             * @param which which
-                                             */
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                List<Note> notes = noteAdapter.getNotes();
+                                    /**
+                                     * Delete note in DB and update adapter's data
+                                     * @param dialog dialog
+                                     * @param which which
+                                     */
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        List<Note> notes = noteAdapter.getNotes();
 
-                                                noteService.deleteNote(note);
-                                                notes.remove(position);
-                                                noteAdapter.notifyItemRemoved(position);
-                                            }
-                                        });
+                                        noteService.deleteNote(note);
+                                        notes.remove(position);
+                                        noteAdapter.notifyItemRemoved(position);
+                                    }
+                                });
 
                                 // action if cancelled (No)
                                 alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                            /**
-                                             * Closes the dialog
-                                             * @param dialog dialog
-                                             * @param which which
-                                             */
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                dialog.dismiss();
-                                            }
-                                        });
+                                    /**
+                                     * Closes the dialog
+                                     * @param dialog dialog
+                                     * @param which which
+                                     */
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
 
                                 alert.show();           // show the alert dialog
                                 return true;
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @Param v view
      */
-    public void logOut(View v){
+    public void logOut(View v) {
         /* Show dialog to confirm user action */
         AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
         alert.setTitle("Logout Confirmation");                              // set dialog title

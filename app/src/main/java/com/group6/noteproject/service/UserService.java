@@ -11,12 +11,13 @@ import com.group6.noteproject.model.User;
 
 public class UserService {
 
-    AppDatabase appDatabase;    // note database
-    UserDAO userDAO;            // user DAO
-    AccountDAO accountDAO;      // account DAO
+    private AppDatabase appDatabase;    // note database
+    private UserDAO userDAO;            // user DAO
+    private AccountDAO accountDAO;      // account DAO
 
     /**
      * Constructor
+     *
      * @param context context of activity
      */
     public UserService(Context context) {
@@ -27,23 +28,25 @@ public class UserService {
 
     /**
      * Login method
+     *
      * @param username input username
      * @param password input password
-     * @return if credentials is valid
+     * @return Account object if credentials is valid
      */
-    public Account logIn(String username, String password){
+    public Account logIn(String username, String password) {
         Account account = accountDAO.logIn(username, password);
         return account;
     }
 
     /**
      * Register new user
+     *
      * @param account contain username and password
-     * @param user user information
+     * @param user    user information
      * @return success status
      */
-    public boolean register(Account account, User user){
-        if(accountDAO.getAccountByUsername(account.getUsername()) != null){
+    public boolean register(Account account, User user) {
+        if (accountDAO.getAccountByUsername(account.getUsername()) != null) {
             return false;
         }
 
@@ -52,10 +55,11 @@ public class UserService {
 
     /**
      * Get an account by its username
+     *
      * @param username username of the account
      * @return Account object
      */
-    public Account getAccountByUsername(String username){
+    public Account getAccountByUsername(String username) {
         Account account = accountDAO.getAccountByUsername(username);
 
         return account;
@@ -63,10 +67,11 @@ public class UserService {
 
     /**
      * Get an account by its ID
+     *
      * @param id ID of the account
      * @return Account object
      */
-    public Account getAccountById(int id){
+    public Account getAccountById(int id) {
         Account account = accountDAO.getAccountById(id);
 
         return account;

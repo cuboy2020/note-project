@@ -38,7 +38,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
         passedIntent = getIntent();     // get the passed intent
 
         /* Set the account object according to passed intent */
-        if (passedIntent.hasExtra(Constant.ACCOUNT_KEY)){
+        if (passedIntent.hasExtra(Constant.ACCOUNT_KEY)) {
             account = (Account) passedIntent.getSerializableExtra(Constant.ACCOUNT_KEY);
         } else {
             account = userService.getAccountById(passedIntent.getIntExtra("noteUserId", -1));
@@ -90,7 +90,7 @@ public class ViewEditNoteActivity extends AppCompatActivity {
             note.setContent(txtNoteContent.getText().toString());
 
             // shows message if note is updated sucessfully or not
-            if (noteService.updateNote(note)){
+            if (noteService.updateNote(note)) {
                 Toast.makeText(this, "Note updated!!!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Update note failed!!!", Toast.LENGTH_SHORT).show();
@@ -111,14 +111,12 @@ public class ViewEditNoteActivity extends AppCompatActivity {
      *
      * @param v view
      */
-    public void backToHome(View v) {
-        goHome();
-    }
+    public void backToHome(View v) { goHome(); }
 
     /**
      * Go back to main activity
      */
-    public void goHome(){
+    public void goHome() {
         /* Go back to main activity */
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(Constant.ACCOUNT_KEY, account);

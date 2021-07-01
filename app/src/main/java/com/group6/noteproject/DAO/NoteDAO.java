@@ -15,6 +15,7 @@ public interface NoteDAO {
 
     /**
      * Get all notes of an user by the user's ID
+     *
      * @param userId user's ID
      * @return list of notes
      */
@@ -23,6 +24,7 @@ public interface NoteDAO {
 
     /**
      * Get a note by its ID
+     *
      * @param id note's ID
      * @return Note object
      */
@@ -31,6 +33,7 @@ public interface NoteDAO {
 
     /**
      * Insert a new note into database
+     *
      * @param note the note to insert
      * @return inserted note's row ID
      */
@@ -39,6 +42,7 @@ public interface NoteDAO {
 
     /**
      * Update an existing note
+     *
      * @param note the updated note
      * @return update result
      */
@@ -47,6 +51,7 @@ public interface NoteDAO {
 
     /**
      * Delete a note
+     *
      * @param note the note to delete
      * @return delete result
      */

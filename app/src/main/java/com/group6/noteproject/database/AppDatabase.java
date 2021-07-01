@@ -21,6 +21,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     /**
      * Get instance of app database, create if not existed
+     *
      * @param context context of activity
      * @return instance of app database
      */
@@ -37,7 +38,7 @@ public abstract class AppDatabase extends RoomDatabase {
     /**
      * Destroy the app database instance
      */
-    private static void destroyInstance(){
+    private static void destroyInstance() {
         dbInstance = null;
     }
 

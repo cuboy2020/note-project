@@ -20,8 +20,8 @@ import com.group6.noteproject.util.Constant;
 
 public class LoginActivity extends AppCompatActivity {
 
-    UserService userService;    // user service
-    Context context;            // login activity's context
+    private UserService userService;    // user service
+    private Context context;            // login activity's context
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

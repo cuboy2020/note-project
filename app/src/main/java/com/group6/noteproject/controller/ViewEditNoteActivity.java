@@ -111,7 +111,9 @@ public class ViewEditNoteActivity extends AppCompatActivity {
      *
      * @param v view
      */
-    public void backToHome(View v) { goHome(); }
+    public void backToHome(View v) {
+        goHome();
+    }
 
     /**
      * Go back to main activity

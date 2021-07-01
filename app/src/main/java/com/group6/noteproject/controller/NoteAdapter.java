@@ -16,24 +16,6 @@ import com.group6.noteproject.view.NoteViewHolder;
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteViewHolder> {
-//
-//    /**
-//     * Class represents each recycler view's item view in note list
-//     */
-//    public class ViewHolder extends RecyclerView.ViewHolder {
-//        private TextView txtTitle;      // note title
-//        private TextView txtContent;    // note content
-//
-//        /**
-//         * Constructor
-//         * @param itemView item view
-//         */
-//        public ViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//            txtTitle = itemView.findViewById(R.id.tv_note_item_title);
-//            txtContent = itemView.findViewById(R.id.tv_note_item_content);
-//        }
-//    }
 
     private Context context; // activity context
     private List<Note> notes; // list of notes

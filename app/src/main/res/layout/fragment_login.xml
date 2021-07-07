@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLoginEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="305dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_mail_outline_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLoginPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="305dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLoginEmail"
+        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="72dp"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLoginPassword" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnForgotPassword"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:text="Forgot password?"
+        android:textSize="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLoginPassword" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="88dp"
+        android:text="Don't have account?"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRegister"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:minWidth="0dp"
+        android:text="Register"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toEndOf="@+id/txtRegister"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginFacebook" />
+
+    <TextView
+        android:id="@+id/txtOr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Or"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnLoginGoogle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLoginGoogle"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:text="Sign In with Google"
+        android:textAllCaps="false"
+        android:textColor="@color/black_900"
+        app:backgroundTint="@color/white_50"
+        app:icon="@drawable/ic_google_24"
+        app:iconTintMode="add"
+        app:iconTint="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLoginFacebook"
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Login with Facebook"
+        android:textAllCaps="false"
+        app:backgroundTint="@color/blue_yonder"
+        app:icon="@drawable/ic_facebook_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginGoogle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

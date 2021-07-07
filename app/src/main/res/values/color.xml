@@ -62,4 +62,6 @@
     <!--color on surface (light)-->
     <color name="black_900">#000000</color>
 
+    <color name="blue_yonder">#4267B2</color>
+
 </resources>

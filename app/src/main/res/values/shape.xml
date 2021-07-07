@@ -37,7 +37,7 @@
     <style name="ShapeAppearance.MyTheme.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <!--Your custom shape here-->
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">@dimen/keyline_5</item>
+        <item name="cornerSize">@dimen/keyline_3</item>3
     </style>
 
     <!--Shape Appearance for medium components like cards, alert dialogs-->

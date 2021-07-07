@@ -1,4 +1,4 @@
-package com.group6.noteapp;
+package com.group6.noteapp.controller;
 
 import androidx.fragment.app.Fragment;
 

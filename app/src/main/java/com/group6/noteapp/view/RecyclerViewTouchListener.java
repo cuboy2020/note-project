@@ -12,11 +12,11 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * Class to implements Recycler View's Item On Click Listener
+ * Class to implements Recycler View's "On Item Click Listener" event
  */
 public class RecyclerViewTouchListener implements RecyclerView.OnItemTouchListener {
-    private GestureDetector gestureDetector;        // gesture detector
-    private RecyclerViewClickListener clickListener;            // click listener
+    private GestureDetector gestureDetector;                // gesture detector
+    private RecyclerViewClickListener clickListener;        // click listener
 
     /**
      * Constructor
@@ -30,7 +30,7 @@ public class RecyclerViewTouchListener implements RecyclerView.OnItemTouchListen
             /**
              * Notify when a tap occurs
              * @param motionEvent motion event
-             * @return
+             * @return true
              */
             @Override
             public boolean onSingleTapUp(MotionEvent motionEvent) {
@@ -38,7 +38,7 @@ public class RecyclerViewTouchListener implements RecyclerView.OnItemTouchListen
             }
 
             /**
-             * Call children's on click when long click is detected on Recycler's surface
+             * Call children's on long click when long click is detected
              * @param motionEvent motion event
              */
             @Override
@@ -52,10 +52,10 @@ public class RecyclerViewTouchListener implements RecyclerView.OnItemTouchListen
     }
 
     /**
-     * Call children's on click when a touch event is detected on Recycler's surface
+     * Call children's on click when a touch event is detected
      * @param recyclerView recycler view
      * @param motionEvent motion event
-     * @return
+     * @return false
      */
     @Override
     public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
@@ -68,20 +68,20 @@ public class RecyclerViewTouchListener implements RecyclerView.OnItemTouchListen
 
     /**
      * Do nothing on touch event
-     * @param rv recycler view
-     * @param e motion event
+     * @param recyclerView recycler view
+     * @param motionEvent motion event
      */
     @Override
-    public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+    public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
         // do nothing
     }
 
     /**
      * Do nothing when a child of Recycler View intercept touch events
-     * @param disallowIntercept disallow intercept status
+     * @param disallowInterceptStatus disallow-intercept status
      */
     @Override
-    public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+    public void onRequestDisallowInterceptTouchEvent(boolean disallowInterceptStatus) {
         // do nothing
     }
 }

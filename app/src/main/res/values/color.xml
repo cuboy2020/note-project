@@ -52,7 +52,7 @@
 
     <color name="red_200">#cf6679</color> <!--Color error (dark)-->
     <color name="red_600">#b00020</color> <!--Color error (light)-->
-
+    <color name="mtrl_textinput_default_box_stroke_color">#EA80FC</color>
     <!--Color surface (light), color on error (light), -->
     <!--color on surface (dark), color on surface (dark)-->
     <color name="white_50">#ffffff</color>

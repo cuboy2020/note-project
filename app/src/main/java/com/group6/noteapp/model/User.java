@@ -6,12 +6,12 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     /* Entity Properties */
-    private int id; // User's ID
-    private String fullName; // User's full name
-    private String email;  // User's email
-    private String address; // User's address
-    private String phone; // User's phone
-    private String birthdate; // User's birth date
+    private int id;                 // User's ID
+    private String fullName;        // User's full name
+    private String email;           // User's email
+    private String address;         // User's address
+    private String phone;           // User's phone
+    private String birthdate;       // User's birth date
 
     /* Constructors */
     public User() {

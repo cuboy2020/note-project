@@ -4,6 +4,11 @@
     <!--Login layout-->
     <string name="login_title">LOG IN</string>
     <string name="create_account"><u>Create an account</u></string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="forgotPass">Forgot password?</string>
+    <string name="signInGoogle">Sign In with Google</string>
+    <string name="loginFacebook">Login with Facebook</string>
+    <string name="dontHaveAccount">Don\'t have account?</string>
+    <string name="login">Login</string>
 </resources>

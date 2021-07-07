@@ -30,7 +30,7 @@
                 android:layout_weight="1"
                 android:gravity="left"
                 android:text="Welcome to Note App"
-                android:textColor="@color/black"
+                android:textColor="@color/black_800"
                 android:textSize="24sp" />
 
             <Button
@@ -53,7 +53,7 @@
             android:layout_marginBottom="20dp"
             android:gravity="center_horizontal"
             android:text="Your Notes"
-            android:textColor="@color/black"
+            android:textColor="@color/black_800"
             android:textSize="24sp" />
 
         <!-- RecyclerView inside LinearLayout -->
@@ -91,6 +91,6 @@
             android:visibility="visible"
             app:elevation="0dp"
             app:backgroundTint="@color/purple_500"
-            app:tint="@color/white" />
+            app:tint="@color/white_50" />
     </RelativeLayout>
 </RelativeLayout>

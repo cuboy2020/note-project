@@ -64,9 +64,9 @@
             android:src="@drawable/ic_save"
             android:onClick="onSave"
             android:backgroundTint="@color/purple_500"
-            android:tint="@color/white"
+            android:tint="@color/white_50"
             app:elevation="0dp"
-            app:tint="@color/white"
+            app:tint="@color/white_50"
             app:borderWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

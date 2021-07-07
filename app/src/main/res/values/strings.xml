@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Note Project</string>
+    <string name="app_name">Note App</string>
 
     <!--Login layout-->
     <string name="login_title">LOG IN</string>

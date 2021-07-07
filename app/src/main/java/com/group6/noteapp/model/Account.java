@@ -6,9 +6,9 @@ import java.io.Serializable;
 public class Account implements Serializable {
 
     /* Entity Properties */
-    private int id; // Account's ID
-    private String username; // Account's username
-    private String password; // Account's password
+    private int id;                 // Account's ID
+    private String username;        // Account's username
+    private String password;        // Account's password
 
     /* Constructors */
     public Account() {

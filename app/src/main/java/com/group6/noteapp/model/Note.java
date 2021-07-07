@@ -6,11 +6,11 @@ import java.io.Serializable;
 public class Note implements Serializable {
 
     /* Entity Properties */
-    private int id; // Note's ID
-    private int userId; // Note's user ID (which user created the note)
-    private String title; // Note's title
-    private String content; // Note's content
-    private Boolean isDeleted; // Is note deleted?
+    private int id;                 // Note's ID
+    private int userId;             // Note's user ID (ID of user who created the note)
+    private String title;           // Note's title
+    private String content;         // Note's content
+    private Boolean isDeleted;      // Is the note in trash?
 
     /* Constructors */
     public Note() {

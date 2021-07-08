@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class NoteViewHolder extends RecyclerView.ViewHolder {
     private TextView txtTitle;      // note title
-    private TextView txtContent;    // note content1232
+    private TextView txtContent;    // note content
 
     /**
      * Constructor

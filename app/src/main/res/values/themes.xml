@@ -19,6 +19,7 @@
     <style name="Theme.MyApp" parent="Base.Theme.MyApp"/>
     <!--Base custom theme which will be shared between both light and dark theme variants-->
     <style name="Base.Theme.MyApp" parent="Base.Theme.MaterialThemeBuilder">
+        <item name="android:fontFamily">@font/inter_font_family</item>
         <!--Material color attributes (light theme) -->
         <!--colorPrimary colors map to components and elements, such as app bars and buttons. -->
         <!--colorSecondary colors are most often used as accents on components, such as FABs and -->
@@ -67,6 +68,7 @@
         <item name="buttonStyle">@style/Widget.MyTheme.Button</item>
     </style>
     <style name="Base.Theme.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:fontFamily">@font/inter_font_family</item>
         <item name="android:statusBarColor" tools:ignore="NewApi">?attr/colorSurface</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
         <item name="android:navigationBarColor" tools:ignore="NewApi">?android:attr/colorBackground</item>

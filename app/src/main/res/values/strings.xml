@@ -8,6 +8,7 @@
     <string name="password">Password</string>
     <string name="forgotPass">Forgot password?</string>
     <string name="forgotPassTitle">Forgot\nPassword</string>
+    <string name="resetPass">Reset Password</string>
     <string name="signInGoogle">Sign In with Google</string>
     <string name="loginFacebook">Login with Facebook</string>
     <string name="no_account">No account? Register here</string>

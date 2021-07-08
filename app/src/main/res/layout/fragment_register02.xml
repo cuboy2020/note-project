@@ -4,60 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.RegisterFragment01">
+    tools:context=".controller.RegisterFragment02">
+
 
     <Button
-        android:id="@+id/btnNext01"
+        android:id="@+id/btnNext02"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="84dp"
         android:text="@string/next"
-        app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintStart_toStartOf="@+id/guideline9"
-        app:layout_constraintTop_toBottomOf="@+id/textInputRegRePassword" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/textInputRegAddress" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtOneThree"
+        android:id="@+id/txtTwoThree"
         style="@style/TextAppearance.MyTheme.Headline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="@string/one_three"
+        android:text="@string/two_three"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtRegister"
+        android:id="@+id/txtRegister2"
         style="@style/TextAppearance.MyTheme.Headline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:text="@string/register"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputRegEmail"
+        android:id="@+id/textInputRegFullname"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="200dp"
         android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textPersonName"
+        android:hint="@string/fullname"
         android:textColorHint="?android:colorPrimary"
         app:boxStrokeColor="?android:colorPrimary"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_baseline_mail_outline_24">
+        app:startIconDrawable="@drawable/ic_baseline_perm_identity_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textEmailAddress" />
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -67,66 +67,64 @@
         android:layout_height="60dp"
         android:layout_marginTop="35dp"
         android:ems="10"
-        android:hint="@string/password"
+        android:hint="@string/birthdate"
         android:textColorHint="?android:colorPrimary"
         app:boxStrokeColor="?android:colorPrimary"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/textInputRegEmail"
-        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24">
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/textInputRegFullname"
+        app:startIconDrawable="@drawable/ic_baseline_calendar_today_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textPassword" />
+            android:inputType="date" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputRegRePassword"
+        android:id="@+id/textInputRegAddress"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="35dp"
         android:ems="10"
-        android:hint="@string/repassword"
+        android:hint="@string/address"
         android:textColorHint="?android:colorPrimary"
         app:boxStrokeColor="?android:colorPrimary"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toStartOf="@+id/guideline8"
-        app:layout_constraintStart_toStartOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toBottomOf="@+id/textInputRegPassword"
-        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24">
+        app:startIconDrawable="@drawable/ic_baseline_house_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textPassword" />
+            android:inputType="text"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
+        android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.12" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
+        android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.88" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline9"
+        android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.23"/>
+        app:layout_constraintGuide_percent="0.23" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
+        android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"

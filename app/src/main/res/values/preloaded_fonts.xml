@@ -17,6 +17,7 @@
 
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/roboto_black_italic</item>
+<!--        <item>@font/roboto_black_italic</item>-->
+        <item>@font/inter_font_family</item>
     </array>
 </resources>

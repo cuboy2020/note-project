@@ -9,5 +9,14 @@
         android:id="@+id/loginFragment"
         android:name="com.group6.noteapp.controller.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment01"
+            app:destination="@id/registerFragment01" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment01"
+        android:name="com.group6.noteapp.controller.RegisterFragment01"
+        android:label="fragment_register01"
+        tools:layout="@layout/fragment_register01" />
 </navigation>

@@ -2,30 +2,4 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
-
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.group6.noteapp.controller.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
-        <action
-            android:id="@+id/action_loginFragment_to_registerFragment01"
-            app:destination="@id/registerFragment01" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment01"
-        android:name="com.group6.noteapp.controller.RegisterFragment01"
-        android:label="fragment_register01"
-        tools:layout="@layout/fragment_register01" >
-        <action
-            android:id="@+id/action_registerFragment01_to_registerFragment02"
-            app:destination="@id/registerFragment02" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerFragment02"
-        android:name="com.group6.noteapp.controller.RegisterFragment02"
-        android:label="fragment_register02"
-        tools:layout="@layout/fragment_register02" />
-</navigation>
+    android:id="@+id/nav_graph" />

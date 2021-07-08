@@ -89,7 +89,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="35dp"
         android:ems="10"
-        android:hint="@string/repassword"
+        android:hint="@string/re_password"
         android:textColorHint="?android:colorPrimary"
         app:boxStrokeColor="?android:colorPrimary"
         app:endIconMode="password_toggle"
